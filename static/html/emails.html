@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ambr airdrop register system</title>
+    <meta name="description" content="Login - Register Template">
+    <meta name="author" content="Lorenzo Angelino aka MrLolok">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+            background-color: #303641;
+        }
+    </style>
+</head>
+
+<body>
+    <dir style="background-color: #1D1F20;
+    position: relative;
+    top: 5%;
+    margin: auto;
+    width: 90%;
+    border-radius: 0.35em;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;">
+        <div style="text-align: center"><h1>Emails</h1></div>
+        <table border="1" style="margin-left: 1%; table-layout:fixed;word-break: break-all; width: 98%">
+            <colgroup>
+                <col style="width:4%">
+                <col style="width:10%">
+                <col style="width:15%">
+                <col style="width:28%">
+                <col style="width:38%">
+                <col style="width:10%">
+                <col style="width:10%">
+            </colgroup> 
+            <tr>
+                <th></th><th>Username</th><th>Emails</th>
+                    <th>Address</th><th>Timestamp</th><th>IP</th>
+                    <th>IsActivated</th>
+                </tr>
+            
+            {{with .}}
+                {{range .Items}}  
+                    <tr><td>{{ .NO }}</td><td>{{ .Username }}</td>
+                        <td>{{ .Email }}</td><td>{{ .Address }}</td>
+                        <td>{{ .Timestamp }}</td>
+                        <td><a href="https://api.turboes.com/Tbsapi/v1/ip2addr?ip={{ .IP }}">{{ .IP }}</a></td>
+                        <td>{{.Activated}}</td></tr> 
+                {{end}}  
+                
+            {{end}}  
+        </table>
+  </dir>
+</body>
+
+</html>
